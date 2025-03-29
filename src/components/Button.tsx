@@ -5,19 +5,25 @@ interface ButtonProps {
 }
 
 const Button = styled.button<ButtonProps>`
-  background-color: ${({ primary }) => (primary ? "#000" : "#fff")};
-  color: ${({ primary }) => (primary ? "#fff" : "#000")};
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #ff6b6b;
+  color: white;
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
+  border-radius: 4px;
+  font-size: 1rem;
   font-weight: 600;
-  transition: all 0.3s ease;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
 
   &:hover {
-    background-color: ${({ primary }) => (primary ? "#fff" : "#000")};
-    color: ${({ primary }) => (primary ? "#000" : "#fff")};
+    background-color: #ff5252;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.8rem;
+    font-size: 0.95rem;
   }
 `;
 

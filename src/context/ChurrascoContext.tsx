@@ -6,10 +6,12 @@ interface ChurrascoContextType {
   criancas: number;
   bebidas: boolean;
   acompanhamentos: boolean;
+  showResult: boolean;
   setAdultos: (value: number) => void;
   setCriancas: (value: number) => void;
   setBebidas: (value: boolean) => void;
   setAcompanhamentos: (value: boolean) => void;
+  setShowResult: (value: boolean) => void;
   calcularQuantidade: () => {
     carne: number;
     cerveja: number;
@@ -32,19 +34,27 @@ export const ChurrascoProvider: React.FC<{ children: ReactNode }> = ({
   const [criancas, setCriancas] = useState<number>(0);
   const [bebidas, setBebidas] = useState<boolean>(false);
   const [acompanhamentos, setAcompanhamentos] = useState<boolean>(false);
-
+  const [showResult, setShowResult] = useState<boolean>(false);
+  const [consumoDestilado, setConsumoDestilado] = useState<"moderado" | "alto">(
+    "moderado"
+  );
   // Função para calcular as quantidades necessárias
   const calcularQuantidade = () => {
-    const carne = adultos * 400 + criancas * 200;
-    const cerveja = bebidas ? adultos * 2000 : 0; // 2L por adulto que bebe
-    const refrigerante = criancas * 1000; // 1L por criança
+    const carneEmGramas = adultos * 400 + criancas * 200;
+    const cervejaEmMl = bebidas ? adultos * 2000 : 0; // 2L por adulto que bebe
+    const refrigeranteEmMl = criancas * 1000; // 1L por criança
     const paoDeAlho = adultos * 3; // 3 pães por adulto
     const porcoesAcompanhamentos = acompanhamentos ? adultos + criancas : 0;
 
+    // Convertendo para unidades mais amigáveis
+    const carne = carneEmGramas / 1000; // Convertendo gramas para kg
+    const cerveja = cervejaEmMl / 1000; // Convertendo ml para L
+    const refrigerante = refrigeranteEmMl / 1000; // Convertendo ml para L
+
     return {
-      carne,
-      cerveja,
-      refrigerante,
+      carne: Number(carne.toFixed(2)), // Arredondando para 2 casas decimais
+      cerveja: Number(cerveja.toFixed(2)),
+      refrigerante: Number(refrigerante.toFixed(2)),
       paoDeAlho,
       acompanhamentos: porcoesAcompanhamentos,
     };
@@ -57,10 +67,12 @@ export const ChurrascoProvider: React.FC<{ children: ReactNode }> = ({
         criancas,
         bebidas,
         acompanhamentos,
+        showResult,
         setAdultos,
         setCriancas,
         setBebidas,
         setAcompanhamentos,
+        setShowResult,
         calcularQuantidade,
       }}
     >
