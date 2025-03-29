@@ -1,34 +1,36 @@
 import styled from "styled-components";
+import InstagramIcon from "../assets/icons/InstagramIcon";
 
 const Footer = () => {
   return (
     <footer className="footer-container">
       <div className="footer-content">
         <div className="social-links">
-          <a
+          {/* <a
             href="https://github.com"
             target="_blank"
             rel="noopener noreferrer"
           >
             GitHub
-          </a>
+          </a> */}
           <a
-            href="https://linkedin.com"
+            href="https://hotm.art/saborechama"
             target="_blank"
             rel="noopener noreferrer"
           >
-            LinkedIn
+            🔥 Receitas de Molhos 🔥
           </a>
+
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/churrasco.maneiro/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Instagram
+            <InstagramIcon />
           </a>
         </div>
         <p className="copyright">
-          © {new Date().getFullYear()} Churrasco Calculator. Todos os direitos
+          © {new Date().getFullYear()} Churrasco Maneiro. Todos os direitos
           reservados.
         </p>
       </div>

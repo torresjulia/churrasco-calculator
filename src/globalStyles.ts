@@ -1,6 +1,9 @@
 import { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Poppins:wght@400;500;600&display=swap');
+
   * {
     margin: 0;
     padding: 0;
@@ -9,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: #000;
+    background-color: #1a1a1a;
     color: #f5f5f5;
     min-height: 100vh;
     display: flex;
@@ -110,6 +113,8 @@ export const GlobalStyle = createGlobalStyle`
             display: flex;
             gap: 1.5rem;
             margin-bottom: 1rem;
+            flex-direction: column;
+            align-items: center;
     
             a {
               color: #f5f5f5;
@@ -117,7 +122,7 @@ export const GlobalStyle = createGlobalStyle`
               transition: color 0.3s ease;
     
               &:hover {
-                color: #ff6b6b;
+                color: orange;
               }
             }
           }
@@ -139,3 +144,189 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export default GlobalStyle;
+
+// Result
+export const ResultContainer = styled.div`
+  width: 100%;
+  max-width: 400px;
+  padding: 1.2rem;
+  background-color: #2a2a2a;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ff6b6b;
+  animation: fadeIn 0.5s ease;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 1rem;
+    border-radius: 8px;
+  }
+`;
+
+export const ResultTitle = styled.h2`
+  font-family: "Righteous", cursive;
+  color: #ff6b6b;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+
+  @media (max-width: 480px) {
+    font-size: 1.3rem;
+  }
+`;
+
+export const ResultItem = styled.p`
+  color: #f5f5f5;
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  border: 1px solid #3a3a3a;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: #ff6b6b;
+    transform: translateX(5px);
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    padding: 0.4rem;
+  }
+`;
+
+// CalculatorForm
+export const FormContainer = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 1.2rem;
+  background-color: #2a2a2a;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ff6b6b;
+`;
+
+export const Title = styled.h1`
+  font-family: "Righteous", cursive;
+  color: #ff6b6b;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+
+  @media (max-width: 480px) {
+    font-size: 1.8rem;
+  }
+`;
+
+export const InputGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+`;
+
+export const Label = styled.label`
+  color: #f5f5f5;
+  font-weight: 500;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
+
+export const Input = styled.input`
+  padding: 0.8rem;
+  border: 2px solid #3a3a3a;
+  border-radius: 8px;
+  background-color: #1a1a1a;
+  color: #f5f5f5;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+
+  &:focus {
+    outline: none;
+    border-color: #ff6b6b;
+    box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.2);
+  }
+
+  &[type="number"] {
+    -moz-appearance: textfield;
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
+  &[type="checkbox"] {
+    width: 1.2rem;
+    height: 1.2rem;
+    cursor: pointer;
+  }
+`;
+
+export const CheckboxContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  border: 2px solid #3a3a3a;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: #ff6b6b;
+  }
+`;
+
+export const CalculateButton = styled.button`
+  margin-top: 0.5rem;
+  padding: 1rem;
+  background-color: orange;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-family: "Righteous", cursive;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  &:hover {
+    background-color: #ff6b6b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 107, 107, 0.3);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+`;
