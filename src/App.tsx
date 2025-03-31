@@ -1,18 +1,25 @@
 import React from "react";
-import ClarityAnalytics from "./components/ClarityAnalytics";
-import { CLARITY_PROJECT_ID } from "./config/analytics";
+import { ThemeProvider } from "styled-components";
 import { ChurrascoProvider } from "./context/ChurrascoContext";
-import GlobalStyle from "./globalStyles";
-import Calculator from "./components/Calculator";
+import { GlobalStyle } from "./globalStyles";
+import CalculatorForm from "./components/CalculatorForm";
+import Result from "./components/Result";
+import Footer from "./components/Footer";
+import ClarityAnalytics from "./infrastructure/ClarityAnalytics";
+import { CLARITY_PROJECT_ID } from "./config/analytics";
 
-const App = () => {
+function App() {
   return (
-    <ChurrascoProvider>
-      <ClarityAnalytics projectId={CLARITY_PROJECT_ID} />
-      <GlobalStyle />
-      <Calculator />
-    </ChurrascoProvider>
+    <ThemeProvider theme={{}}>
+      <ChurrascoProvider>
+        <GlobalStyle />
+        <ClarityAnalytics projectId={CLARITY_PROJECT_ID} />
+        <CalculatorForm />
+        <Result />
+        <Footer />
+      </ChurrascoProvider>
+    </ThemeProvider>
   );
-};
+}
 
 export default App;
