@@ -35,24 +35,22 @@ export const ChurrascoProvider: React.FC<{ children: ReactNode }> = ({
   const [bebidas, setBebidas] = useState<boolean>(false);
   const [acompanhamentos, setAcompanhamentos] = useState<boolean>(false);
   const [showResult, setShowResult] = useState<boolean>(false);
-  const [consumoDestilado, setConsumoDestilado] = useState<"moderado" | "alto">(
-    "moderado"
-  );
+
   // Função para calcular as quantidades necessárias
   const calcularQuantidade = () => {
     const carneEmGramas = adultos * 400 + criancas * 200;
-    const cervejaEmMl = bebidas ? adultos * 2000 : 0; // 2L por adulto que bebe
-    const refrigeranteEmMl = criancas * 1000; // 1L por criança
-    const paoDeAlho = adultos * 3; // 3 pães por adulto
+    const cervejaEmMl = bebidas ? adultos * 2000 : 0;
+    const refrigeranteEmMl = criancas * 1000;
+    const paoDeAlho = adultos * 3;
     const porcoesAcompanhamentos = acompanhamentos ? adultos + criancas : 0;
 
     // Convertendo para unidades mais amigáveis
-    const carne = carneEmGramas / 1000; // Convertendo gramas para kg
-    const cerveja = cervejaEmMl / 1000; // Convertendo ml para L
-    const refrigerante = refrigeranteEmMl / 1000; // Convertendo ml para L
+    const carne = carneEmGramas / 1000;
+    const cerveja = cervejaEmMl / 1000;
+    const refrigerante = refrigeranteEmMl / 1000;
 
     return {
-      carne: Number(carne.toFixed(2)), // Arredondando para 2 casas decimais
+      carne: Number(carne.toFixed(2)),
       cerveja: Number(cerveja.toFixed(2)),
       refrigerante: Number(refrigerante.toFixed(2)),
       paoDeAlho,
