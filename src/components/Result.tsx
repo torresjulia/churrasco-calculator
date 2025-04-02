@@ -1,6 +1,6 @@
 import React from "react";
 import { useChurrasco } from "../context/ChurrascoContext";
-import { ResultContainer, ResultItem, ResultTitle } from "../globalStyles";
+import { ResultContainer, ResultItem, ResultTitle } from "../styles";
 
 const Result = () => {
   const { calcularQuantidade, showResult } = useChurrasco();

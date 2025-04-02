@@ -1,6 +1,6 @@
 import React from "react";
 import { ChurrascoProvider } from "./context/ChurrascoContext";
-import { GlobalStyle } from "./globalStyles";
+import { GlobalStyle } from "./styles";
 import ClarityAnalytics from "./infrastructure/ClarityAnalytics";
 import { CLARITY_PROJECT_ID } from "./config/analytics";
 import Calculator from "./components/Calculator";

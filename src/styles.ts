@@ -9,6 +9,14 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box; 
     font-family: 'Poppins', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html, body {
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    touch-action: auto;
   }
 
   body {
@@ -17,12 +25,14 @@ export const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    position: relative;
   }
 
   #root {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    position: relative;
   }
 
   .calculator-container {
@@ -35,7 +45,8 @@ export const GlobalStyle = createGlobalStyle`
     background-color: #1a1a1a;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    touch-action: none;
+    position: relative;
+    z-index: 1;
     
       .header-container {
         background: #ff5733;
@@ -139,6 +150,13 @@ export const GlobalStyle = createGlobalStyle`
   @media (max-width: 768px) {
     body {
       font-size: 14px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .calculator-container {
+      padding: 15px;
+      gap: 15px;
     }
   }
 `;
@@ -210,126 +228,134 @@ export const ResultItem = styled.p`
   }
 `;
 
-// CalculatorForm
-// export const FormContainer = styled.form`
-//   display: flex;
-//   flex-direction: column;
-//   gap: 0.8rem;
-//   width: 100%;
-//   max-width: 400px;
-//   margin: 0 auto;
-//   padding: 1.2rem;
-//   background-color: #2a2a2a;
-//   border-radius: 12px;
-//   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-//   border: 1px solid #ff6b6b;
-// `;
+// Calculator Form
+export const FormContainer = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 1.2rem;
+  background-color: #2a2a2a;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ff6b6b;
+`;
 
-// export const Title = styled.h1`
-//   font-family: "Righteous", cursive;
-//   color: #ff6b6b;
-//   text-align: center;
-//   margin-bottom: 1rem;
-//   font-size: 2rem;
-//   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+export const Title = styled.h1`
+  font-family: "Righteous", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+  color: #ff6b6b;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 
-//   @media (max-width: 480px) {
-//     font-size: 1.8rem;
-//   }
-// `;
+  @media (max-width: 480px) {
+    font-size: 1.8rem;
+  }
+`;
 
-// export const InputGroup = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   gap: 0.3rem;
-// `;
+export const InputGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+`;
 
-// export const Label = styled.label`
-//   color: #f5f5f5;
-//   font-weight: 500;
-//   font-size: 0.9rem;
-//   display: flex;
-//   align-items: center;
-//   gap: 0.5rem;
-// `;
+export const Label = styled.label`
+  color: #f5f5f5;
+  font-weight: 500;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
 
-// export const Input = styled.input`
-//   padding: 0.8rem;
-//   border: 2px solid #3a3a3a;
-//   border-radius: 8px;
-//   background-color: #1a1a1a;
-//   color: #f5f5f5;
-//   font-size: 1rem;
-//   transition: all 0.3s ease;
+export const Input = styled.input`
+  padding: 0.8rem;
+  border: 2px solid #3a3a3a;
+  border-radius: 8px;
+  background-color: #1a1a1a;
+  color: #f5f5f5;
+  font-size: 1rem;
+  transition: all 0.3s ease;
 
-//   &:focus {
-//     outline: none;
-//     border-color: #ff6b6b;
-//     box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.2);
-//   }
+  &:focus {
+    outline: none;
+    border-color: #ff6b6b;
+    box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.2);
+  }
 
-//   &[type="number"] {
-//     -moz-appearance: textfield;
-//     &::-webkit-outer-spin-button,
-//     &::-webkit-inner-spin-button {
-//       -webkit-appearance: none;
-//       margin: 0;
-//     }
-//   }
+  &[type="number"] {
+    -moz-appearance: textfield;
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
 
-//   &[type="checkbox"] {
-//     width: 1.2rem;
-//     height: 1.2rem;
-//     cursor: pointer;
-//   }
-// `;
+  &[type="checkbox"] {
+    width: 1.2rem;
+    height: 1.2rem;
+    cursor: pointer;
+  }
+`;
 
-// export const CheckboxContainer = styled.div`
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-//   padding: 0.5rem;
-//   background-color: #1a1a1a;
-//   border-radius: 8px;
-//   border: 2px solid #3a3a3a;
-//   transition: all 0.3s ease;
+export const CheckboxContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  border: 2px solid #3a3a3a;
+  transition: all 0.3s ease;
 
-//   &:hover {
-//     border-color: #ff6b6b;
-//   }
-// `;
+  &:hover {
+    border-color: #ff6b6b;
+  }
+`;
 
-// export const CalculateButton = styled.button`
-//   margin-top: 0.5rem;
-//   padding: 1rem;
-//   background-color: ${(props) => (props.disabled ? "#666" : "orange")};
-//   color: white;
-//   border: none;
-//   border-radius: 8px;
-//   font-family: "Righteous", -apple-system, BlinkMacSystemFont, "Segoe UI",
-//     Roboto, sans-serif;
-//   font-size: 1.1rem;
-//   font-weight: 600;
-//   cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
-//   transition: all 0.3s ease;
-//   width: 100%;
-//   text-transform: uppercase;
-//   letter-spacing: 1px;
-//   opacity: ${(props) => (props.disabled ? 0.7 : 1)};
+export const CalculateButton = styled.button<{ disabled: boolean }>`
+  margin-top: 0.5rem;
+  padding: 1rem;
+  background-color: ${(props) => (props.disabled ? "#666" : "orange")};
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-family: "Righteous", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
+  transition: all 0.3s ease;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: ${(props) => (props.disabled ? 0.7 : 1)};
 
-//   &:hover {
-//     background-color: ${(props) => (props.disabled ? "#666" : "#ff6b6b")};
-//     transform: ${(props) => (props.disabled ? "none" : "translateY(-2px)")};
-//     box-shadow: ${(props) =>
-//       props.disabled ? "none" : "0 4px 8px rgba(255, 107, 107, 0.3)"};
-//   }
+  &:hover {
+    background-color: ${(props) => (props.disabled ? "#666" : "#ff6b6b")};
+    transform: ${(props) => (props.disabled ? "none" : "translateY(-2px)")};
+    box-shadow: ${(props) =>
+      props.disabled ? "none" : "0 4px 8px rgba(255, 107, 107, 0.3)"};
+  }
 
-//   &:active {
-//     transform: translateY(0);
-//   }
+  &:active {
+    transform: translateY(0);
+  }
 
-//   @media (max-width: 480px) {
-//     padding: 0.8rem;
-//     font-size: 1rem;
-//   }
-// `;
+  @media (max-width: 480px) {
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+`;
+
+export const ErrorMessage = styled.span`
+  color: #ff6b6b;
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+  display: block;
+`;
