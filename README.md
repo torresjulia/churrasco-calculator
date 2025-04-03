@@ -60,7 +60,7 @@ Sinta-se à vontade para contribuir com melhorias e/ou funcionalidades!
 
 ## 🚀 Status do Projeto
 
-Projeto em evolução! A ideia é deixar a experiência do usuário cada vez melhor, trazendo novas funcionalidades e ajustes conforme o feedback visando monetização. 
+Projeto em evolução! A ideia é deixar a experiência do usuário cada vez melhor, trazendo novas funcionalidades e ajustes conforme o feedback. Além disso, formas de monetização estão sendo estudadas. 
 ## 🚀 Deploy
 
 O deploy foi realizado na Netlify. Qualquer nova atualização no repositório é refletida automaticamente no site!
